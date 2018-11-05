@@ -74,7 +74,7 @@ RCT_EXPORT_METHOD(loadSketch:(nonnull NSNumber *)reactTag path:(nonnull NSString
 }
 
 
-RCT_EXPORT_METHOD(saveSketch:(nonnull NSNumber *)reactTag saveLocation:(nonnull NSString *)saveLocation ) {
+RCT_EXPORT_METHOD(saveSketch:(nonnull NSNumber *)reactTag saveLocation:(NSString *)saveLocation ) {
     
     [self.bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, NSDictionary<NSNumber *,SketchViewContainer *> *viewRegistry) {
         SketchViewContainer *sketchViewContainer = (SketchViewContainer *)viewRegistry[reactTag];
