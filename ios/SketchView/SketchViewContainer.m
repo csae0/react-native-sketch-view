@@ -20,13 +20,18 @@
     return NO;
 }
 
--(SketchFile *)saveToLocalCache
+-(SketchFile *)saveToLocalCache: (nullable NSString *)saveLocation
 {
     UIImage *image = [SketchViewContainer imageWithView:self];
-    
-    NSURL *tempDir = [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
+    NSString * saveDirectory = nil;
+    if ([saveLocation length]) {
+        saveDirectory = saveDirectory;
+    } else {
+        saveDirectory = NSTemporaryDirectory()
+    }
+    NSURL *saveDir = [NSURL fileURLWithPath:saveDirectory isDirectory:YES];
     NSString *fileName = [NSString stringWithFormat:@"sketch_%@.png", [[NSUUID UUID] UUIDString]];
-    NSURL *fileURL = [tempDir URLByAppendingPathComponent:fileName];
+    NSURL *fileURL = [saveDir URLByAppendingPathComponent:fileName];
     
     NSData *imageData = UIImagePNGRepresentation(image);
     [imageData writeToURL:fileURL atomically:YES];

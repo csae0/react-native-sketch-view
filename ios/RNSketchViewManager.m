@@ -74,14 +74,14 @@ RCT_EXPORT_METHOD(loadSketch:(nonnull NSNumber *)reactTag path:(nonnull NSString
 }
 
 
-RCT_EXPORT_METHOD(saveSketch:(nonnull NSNumber *)reactTag) {
+RCT_EXPORT_METHOD(saveSketch:(nonnull NSNumber *)reactTag saveLocation:(nullable NSString *)saveLocation ) {
     
     [self.bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, NSDictionary<NSNumber *,SketchViewContainer *> *viewRegistry) {
         SketchViewContainer *sketchViewContainer = (SketchViewContainer *)viewRegistry[reactTag];
         if (![sketchViewContainer isKindOfClass:[SketchViewContainer class]]) {
             RCTLogError(@"Invalid view returned from registry, expecting RCTCamera, got: %@", sketchViewContainer);
         } else {
-            SketchFile *sketchFile = [sketchViewContainer saveToLocalCache];
+            SketchFile *sketchFile = [sketchViewContainer saveToLocalCache: saveLocation];
             if (sketchViewContainer.onSaveSketch) {
                 sketchViewContainer.onSaveSketch(@{
                                                    @"localFilePath": sketchFile.localFilePath,
