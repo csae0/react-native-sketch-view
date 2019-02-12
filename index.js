@@ -73,7 +73,7 @@ class SketchView extends Component {
     UIManager.dispatchViewManagerCommand(
       findNodeHandle(this),
       UIManager.RNSketchView.Commands.saveSketch,
-      [saveLocation]
+      [saveLocation] // if error occurs (called with 1 arguments but expected 2 arguments) just pass "saveLocation" 2 times, then you get error (called with 3 a. but expected 2 a.) undo to 1 "saveLocation" param and error is gone?! #WorstBugfixEver
     )
   }
 
