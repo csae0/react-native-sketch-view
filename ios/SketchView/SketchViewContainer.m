@@ -20,7 +20,7 @@
     return NO;
 }
 
--(SketchFile *)saveToLocalCache: (nullable NSString *)saveLocation
+-(SketchFile *)saveToLocalCache: (NSString *)saveLocation
 {
     UIImage *image = [SketchViewContainer imageWithView:self];
     
