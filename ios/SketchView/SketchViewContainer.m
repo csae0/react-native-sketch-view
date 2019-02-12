@@ -27,7 +27,7 @@
     if ([saveLocation length]) {
         saveDirectory = saveDirectory;
     } else {
-        saveDirectory = NSTemporaryDirectory()
+        saveDirectory = NSTemporaryDirectory();
     }
     NSURL *saveDir = [NSURL fileURLWithPath:saveDirectory isDirectory:YES];
     NSString *fileName = [NSString stringWithFormat:@"sketch_%@.png", [[NSUUID UUID] UUIDString]];
