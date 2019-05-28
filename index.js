@@ -68,7 +68,7 @@ class SketchView extends Component {
     )
   }
 
-  saveSketch () {
+  saveSketch (saveLocation) {
     UIManager.dispatchViewManagerCommand(
       findNodeHandle(this),
       UIManager.getViewManagerConfig('RNSketchView').Commands.saveSketch,
