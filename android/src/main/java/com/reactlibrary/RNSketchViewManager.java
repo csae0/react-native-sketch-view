@@ -3,6 +3,7 @@ package com.reactlibrary;
 
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 
 import com.facebook.infer.annotation.Assertions;
@@ -85,6 +86,15 @@ public class RNSketchViewManager extends SimpleViewManager<SketchViewContainer> 
   }
 
   @Override
+  public Map getExportedCustomDirectEventTypeConstants() {
+    return MapBuilder.builder()
+            .put("onSaveSketch", MapBuilder.of("registrationName", "onSaveSketch"))
+            .put("onExportSketch", MapBuilder.of("registrationName", "onExportSketch"))
+            .put("onSketchViewEdited", MapBuilder.of("registrationName", "onSketchViewEdited"))
+            .build();
+  }
+
+  @Override
   public void receiveCommand(SketchViewContainer root, int commandId, @Nullable ReadableArray args) {
     Assertions.assertNotNull(root);
 
@@ -99,11 +109,7 @@ public class RNSketchViewManager extends SimpleViewManager<SketchViewContainer> 
         return;
       case COMMAND_SAVE_SKETCH:
         try {
-          String saveLocation = "";
-          if (args != null) {
-            saveLocation = args.getString(0);
-          }
-          SketchFile sketchFile = root.saveToLocalCache(saveLocation);
+          SketchFile sketchFile = root.saveToLocalCache();
           onSaveSketch(root, sketchFile);
           return;
         } catch (IOException e) {
@@ -137,13 +143,7 @@ public class RNSketchViewManager extends SimpleViewManager<SketchViewContainer> 
   }
 
   private void sendEvent(View view, String eventType, WritableMap event) {
-    WritableMap nativeEvent = Arguments.createMap();
-    nativeEvent.putString("type", eventType);
-    nativeEvent.putMap("event", event);
     ReactContext reactContext = (ReactContext) view.getContext();
-    reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(view.getId(), "topChange", nativeEvent);
+    reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(view.getId(), eventType, event);
   }
-
-
-
 }

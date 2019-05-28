@@ -6,7 +6,6 @@ import {
   ViewPropTypes,
   UIManager,
   findNodeHandle,
-  DeviceEventEmitter,
   ColorPropType
 } from 'react-native'
 
@@ -56,7 +55,7 @@ class SketchView extends Component {
   clearSketch () {
     UIManager.dispatchViewManagerCommand(
       findNodeHandle(this),
-      UIManager.RNSketchView.Commands.clearSketch,
+      UIManager.getViewManagerConfig('RNSketchView').Commands.clearSketch,
       []
     )
   }
@@ -64,23 +63,24 @@ class SketchView extends Component {
   loadSketch (path) {
     UIManager.dispatchViewManagerCommand(
       findNodeHandle(this),
-      UIManager.RNSketchView.Commands.loadSketch,
+      UIManager.getViewManagerConfig('RNSketchView').Commands.loadSketch,
       [path]
     )
   }
 
-  saveSketch (saveLocation) {
+  saveSketch () {
     UIManager.dispatchViewManagerCommand(
       findNodeHandle(this),
-      UIManager.RNSketchView.Commands.saveSketch,
+      UIManager.getViewManagerConfig('RNSketchView').Commands.saveSketch,
       [saveLocation] // if error occurs (called with 1 arguments but expected 2 arguments) just pass "saveLocation" 2 times, then you get error (called with 3 a. but expected 2 a.) undo to 1 "saveLocation" param and error is gone?! #WorstBugfixEver
+
     )
   }
 
   exportSketch () {
     UIManager.dispatchViewManagerCommand(
       findNodeHandle(this),
-      UIManager.RNSketchView.Commands.exportSketch,
+      UIManager.getViewManagerConfig('RNSketchView').Commands.exportSketch,
       []
     )
   }
@@ -88,7 +88,7 @@ class SketchView extends Component {
   changeTool (toolId) {
     UIManager.dispatchViewManagerCommand(
       findNodeHandle(this),
-      UIManager.RNSketchView.Commands.changeTool,
+      UIManager.getViewManagerConfig('RNSketchView').Commands.changeTool,
       [toolId]
     )
   }
@@ -96,7 +96,7 @@ class SketchView extends Component {
   setEdited (edited) {
     UIManager.dispatchViewManagerCommand(
       findNodeHandle(this),
-      UIManager.RNSketchView.Commands.setEdited,
+      UIManager.getViewManagerConfig('RNSketchView').Commands.setEdited,
       [edited]
     )
   }

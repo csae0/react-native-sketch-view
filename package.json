@@ -1,15 +1,40 @@
 {
-  "name": "react-native-sketch-view",
-  "version": "1.0.0",
-  "description": "Basic React Native touch based sketch view supporting iOS and Android",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
+  "_args": [
+    [
+      "github:csae0/react-native-sketch-view#master",
+      "/Users/florianrenner/Documents/git/rnsmart"
+    ]
+  ],
+  "_from": "github:csae0/react-native-sketch-view#master",
+  "_id": "react-native-sketch-view@github:csae0/react-native-sketch-view#14a853c0a23ea662c4ebf59d74099e2a52241a54",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/react-native-sketch-view",
+  "_phantomChildren": {},
+  "_requested": {
     "type": "git",
-    "url": "git+https://github.com/keshavkaul/react-native-sketch-view.git"
+    "raw": "github:csae0/react-native-sketch-view#master",
+    "rawSpec": "github:csae0/react-native-sketch-view#master",
+    "saveSpec": "github:csae0/react-native-sketch-view#master",
+    "fetchSpec": null,
+    "gitCommittish": "master"
   },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "github:csae0/react-native-sketch-view#14a853c0a23ea662c4ebf59d74099e2a52241a54",
+  "_spec": "github:csae0/react-native-sketch-view#master",
+  "_where": "/Users/florianrenner/Documents/git/rnsmart",
+  "author": {
+    "name": "Keshav Kaul",
+    "email": "kaul.keshav@gmail.com",
+    "url": "https://github.com/keshavkaul"
+  },
+  "bugs": {
+    "url": "https://github.com/keshavkaul/react-native-sketch-view/issues"
+  },
+  "description": "Basic React Native touch based sketch view supporting iOS and Android",
+  "homepage": "https://github.com/keshavkaul/react-native-sketch-view#readme",
   "keywords": [
     "react",
     "react-native",
@@ -19,18 +44,18 @@
     "sketch",
     "draw"
   ],
-  "author": {
-    "name": "Keshav Kaul",
-    "email": "kaul.keshav@gmail.com",
-    "url": "https://github.com/keshavkaul"
-  },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/keshavkaul/react-native-sketch-view/issues"
-  },
-  "homepage": "https://github.com/keshavkaul/react-native-sketch-view#readme",
-
+  "main": "index.js",
+  "name": "react-native-sketch-view",
   "peerDependencies": {
     "react-native": "^0.44.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keshavkaul/react-native-sketch-view.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
 }

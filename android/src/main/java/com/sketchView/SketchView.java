@@ -117,10 +117,14 @@ public class SketchView extends View {
     }
 
     private void sendEvent(View view, String eventType, WritableMap event) {
+        ReactContext reactContext = (ReactContext) view.getContext();
+        reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(view.getId(), eventType, event);
+    }
+    /*private void sendEvent(View view, String eventType, WritableMap event) {
         WritableMap nativeEvent = Arguments.createMap();
         nativeEvent.putString("type", eventType);
         nativeEvent.putMap("event", event);
         ReactContext reactContext = (ReactContext) view.getContext();
         reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(view.getId(), "topChange", nativeEvent);
-      }
+      }*/
 }
