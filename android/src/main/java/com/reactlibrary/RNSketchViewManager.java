@@ -109,7 +109,11 @@ public class RNSketchViewManager extends SimpleViewManager<SketchViewContainer> 
         return;
       case COMMAND_SAVE_SKETCH:
         try {
-          SketchFile sketchFile = root.saveToLocalCache();
+          String saveLocation = "";
+          if (args != null) {
+            saveLocation = args.getString(0);
+          }
+          SketchFile sketchFile = root.saveToLocalCache(saveLocation);
           onSaveSketch(root, sketchFile);
           return;
         } catch (IOException e) {
