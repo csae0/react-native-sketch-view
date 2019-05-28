@@ -39,7 +39,7 @@ public class SketchViewContainer extends LinearLayout {
         } else {
             saveDirectory = this.getReactApplicationContext().getCacheDir().getAbsolutePath();
         }
-        String name = "sketch_", UUID.randomUUID().toString()+".png";
+        String name = "sketch_" + UUID.randomUUID().toString()+".png";
         saveDirectory = saveDirectory + "/" + name;
         
         FileOutputStream imageOutput = new FileOutputStream(saveDirectory);
