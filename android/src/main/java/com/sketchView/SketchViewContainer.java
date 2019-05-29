@@ -34,10 +34,10 @@ public class SketchViewContainer extends LinearLayout {
         draw(canvas);
 
         String saveDirectory = "";
-        if (saveLocation.length() > 0) {
+        if (saveLocation != null && saveLocation.length() > 0) {
             saveDirectory = saveLocation;
         } else {
-            saveDirectory = this.getReactApplicationContext().getCacheDir().getAbsolutePath();
+            saveDirectory = this.getContext().getCacheDir().getAbsolutePath();
         }
         String name = "sketch_" + UUID.randomUUID().toString()+".png";
         saveDirectory = saveDirectory + "/" + name;
